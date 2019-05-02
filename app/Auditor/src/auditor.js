@@ -9,7 +9,7 @@
 
 var protocol = require('./protocol');
 var dgram = require('dgram');
-var s = dgram.createSocket('udp4');
+var udp_socket = dgram.createSocket('udp4');
 var moment = require('moment');
 var net = require('net');
 
@@ -61,15 +61,17 @@ function updateTime(uuid) {
 }
 
 
-s.bind(protocol.PROTOCOL_PORT, function() {
-    console.log("Joining multicast group");
-    s.addMembership(protocol.PROTOCOL_MULTICAST_ADDRESS);
+udp_socket.bind(protocol.PROTOCOL_PORT, function() {
+    console.log("Joining multicast group : " + protocol.PROTOCOL_MULTICAST_ADDRESS + ":" + protocol.PROTOCOL_PORT);
+    udp_socket.addMembership(protocol.PROTOCOL_MULTICAST_ADDRESS);
 });
 
-s.on('message', function(msg, source) {
+udp_socket.on('message', function(msg, source) {
     var rcv = JSON.parse(msg);
     var uuid = rcv["uuid"];
     var sound = rcv["sound"];
+
+	console.log("message recu ");
 
 
     if(mapMusician.has(uuid)) {
