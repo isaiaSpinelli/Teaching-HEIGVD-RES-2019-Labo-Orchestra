@@ -17,7 +17,6 @@ const SOUNDS = {
     drum: "boum-boum"
 };
 
-process.argv[2] = "piano"
 var instrument = process.argv[2];
 
 // Si l'instrument n'est pas definie

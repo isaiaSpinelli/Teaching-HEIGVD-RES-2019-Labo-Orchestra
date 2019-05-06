@@ -1,5 +1,12 @@
 # Teaching-HEIGVD-RES-2019-Labo-Orchestra
 
+## Pour moi
+npm install --save-dev eslint eslint-config-airbnb-base eslint-plugin-import
+**npm** install --save-dev eslint eslint-config-airbnb-base eslint-plugin-import
+a voir -> https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-Javascript-101
+
+
+
 ## Admin
 
 * **Every student** must do the implementation and have a repo with the code at the end of the process.
@@ -129,7 +136,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | How can we use the `https://www.npmjs.com/` web site?  |
 | | rechercher un paquet utile ou de la documentation  |
 |Question | In JavaScript, how can we **generate a UUID** compliant with RFC4122? |
-| | utiliser le GUID import  |
+| | utiliser le GUID import (npm install --save (enregistre dans package.json) uuid ) |
 |Question | In Node.js, how can we execute a function on a **periodic** basis? |
 | | setInterval ( fonction , délai );  |
 |Question | In Node.js, how can we **emit UDP datagrams**? |
@@ -145,7 +152,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | How do we **define and build our own Docker image**?|
 | | voir dockerFile et docker build  |
 |Question | How can we use the `ENTRYPOINT` statement in our Dockerfile?  |
-| | en Utilisant la commande node  |
+| | en Utilisant la commande node pour lancer l'application  |
 |Question | After building our Docker image, how do we use it to **run containers**?  |
 | | docker run  |
 |Question | How do we get the list of all **running containers**?  |
@@ -153,7 +160,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | How do we **stop/kill** one running container?  |
 | | docker rm / docker stop  |
 |Question | How can we check that our running containers are effectively sending UDP datagrams?  |
-| | *Enter your response here...*  |
+| | en utiisant tcpdump  |
 
 
 ## Task 4: implement an "auditor" Node.js application
@@ -167,7 +174,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | How can we use the `Moment.js` npm module to help us with **date manipulations** and formatting?  |
 | | npm install moment --save |
 |Question | When and how do we **get rid of inactive players**?  |
-| | *Enter your response here...* |
+| | En verifiant régulirement (~1 seconde) les sinces recu ne dépasse pas 5 secondes |
 |Question | How do I implement a **simple TCP server** in Node.js?  |
 | | net -> .createServer -> .listent -> fonction   OnClientConnected  |
 
@@ -177,7 +184,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic |
 | ---  | --- |
 |Question | How do we validate that the whole system works, once we have built our Docker image? |
-| | *Enter your response here...* |
+| | En lancant le toutes avec plusieurs musiciens et en faisant une requete à l'adresse IP de la machine docker (192.168.99.100:2205) |
 
 
 ## Constraints

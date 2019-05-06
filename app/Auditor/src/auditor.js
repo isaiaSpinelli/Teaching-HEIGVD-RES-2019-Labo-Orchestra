@@ -71,8 +71,6 @@ udp_socket.on('message', function(msg, source) {
     var uuid = rcv["uuid"];
     var sound = rcv["sound"];
 
-	console.log("message recu ");
-
 
     if(mapMusician.has(uuid)) {
         updateTime(uuid);

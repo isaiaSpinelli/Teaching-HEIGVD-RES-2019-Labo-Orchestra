@@ -1,4 +1,5 @@
-FROM node:latest
+#FROM node:latest
+FROM node:4.3.1
 
 MAINTAINER Isaia Spinelli <isaia.spinelli@heig-vd.ch>
 
