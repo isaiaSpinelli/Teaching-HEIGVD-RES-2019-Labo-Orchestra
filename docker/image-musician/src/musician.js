@@ -1,4 +1,4 @@
-var protocol = require('./protocol');
+var protocol = require('./Protocol');
 
 var dgram = require('dgram');
 

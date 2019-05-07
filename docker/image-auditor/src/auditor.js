@@ -18,14 +18,18 @@ server.on('connection', callbackFunctionToCallWhenNewClientHasArrived);
 server.listen(2205, "0.0.0.0");
 function callbackFunctionToCallWhenNewClientHasArrived(socket) {
     var musicians = new Array();
-    for (var [key, value] of mapMusician) {
+
+    console.log("shit");
+
+    mapMusician.forEach(function (value, key) {
         var activeMusician = {
             uuid: key,
             instrument: value["instrument"],
             activeSince: value["activeSince"]
         };
         musicians.push(activeMusician);
-    }
+
+    });
     var payload = JSON.stringify(musicians);
     socket.write(payload + '\n');
     socket.end();
@@ -82,14 +86,16 @@ udp_socket.on('message', function(msg, source) {
 });
 
 function check() {
-    for (var [key, value] of mapMusician) {
+    mapMusician.forEach(function (value, key) {
         var now = moment().format();
         var then = value["activeSince"];
         var comparaison = moment(now).diff(moment(then), 'second');
         if(comparaison > 5) {
             mapMusician.delete(key);
         }
-    }
+
+    });
+
 }
 
 //chaque seconde, élimine les musiciens qui n'ont pas joué depuis 5 secondes
