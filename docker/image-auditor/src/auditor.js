@@ -19,12 +19,10 @@ server.listen(2205, "0.0.0.0");
 function callbackFunctionToCallWhenNewClientHasArrived(socket) {
     var musicians = new Array();
 
-    console.log("shit");
-
     mapMusician.forEach(function (value, key) {
         var activeMusician = {
             uuid: key,
-            instrument: value["instrument"],
+            instrument:value["instrument"],
             activeSince: value["activeSince"]
         };
         musicians.push(activeMusician);
@@ -73,13 +71,13 @@ udp_socket.bind(protocol.PROTOCOL_PORT, function() {
 udp_socket.on('message', function(msg, source) {
     var rcv = JSON.parse(msg);
     var uuid = rcv["uuid"];
-    var sound = rcv["sound"];
+    var instrument = rcv["instrument"];
 
 
     if(mapMusician.has(uuid)) {
         updateTime(uuid);
     } else {
-        var activity = new Activity(getInstrumentFromSound(sound), getTime());
+        var activity = new Activity(instrument, getTime());
         mapMusician.set(uuid, activity);
     }
 
