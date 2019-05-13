@@ -120,7 +120,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | What **payload** should we put in the UDP datagrams? |
 | | l'identifiant du musicien, le son de l'instrument |
 |Question | What **data structures** do we need in the UDP sender and receiver? When will we update these data structures? When will we query these data structures? |
-| | *Enter your response here...* |
+| Map() |
 
 
 ## Task 2: implement a "musician" Node.js application
